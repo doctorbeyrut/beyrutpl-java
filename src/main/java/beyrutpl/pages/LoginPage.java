@@ -4,7 +4,7 @@ import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
-public class LoginPage extends HomePage {
+public class LoginPage extends BasePage {
 
     private By usernameField = By.id("username");
     private By passwordField = By.id("password");

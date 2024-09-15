@@ -9,7 +9,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
 
-public class HomePage {
+public class HomePage extends BasePage {
 
     protected WebDriver driver;
     protected Logger log;
@@ -20,27 +20,12 @@ public class HomePage {
     private String url = "https://beyrut.pl";
 
     public HomePage(WebDriver driver, Logger log) {
-        this.driver = driver;
-        this.log = log;
+        super(driver, log);
     }
-    protected WebElement locate(By locator) {
-        return driver.findElement(locator);
-    }
+
     public void openPage() {
         log.info("Opening: " + url);
         driver.get(url);
-    }
-    private void waitFor(By locator) {
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
-        wait.until(ExpectedConditions.elementToBeClickable(locator));
-    }
-    public void press(By locator) {
-        waitFor(locator);
-        locate(locator).click();
-    }
-    public void type(String text, By locator) {
-        waitFor(locator);
-        locate(locator).sendKeys(text);
     }
     public void goToSeleniumPage() {
         press(navLinkSelenium);
